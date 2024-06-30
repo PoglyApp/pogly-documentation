@@ -22,3 +22,9 @@ For those interested in self-hosting, the react frontend is optional. The [stand
 To get started with installation, you will need to [build and publish your first SpacetimeDB Module](./install/moduleSetup.md).
 
 If you're looking for the optional frontend setup, [you can click here](./install/frontendSetup.md).
+
+## Video Setup
+
+If you like video instructions- here you go!
+
+[pogly_install_setup.webm](https://github.com/PoglyApp/pogly-documentation/assets/36650721/93848979-ec29-467d-8ca3-f9fae7635078)
