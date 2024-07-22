@@ -31,4 +31,15 @@ npm run build
 ```
 To run your built production version, you will need to utilize a web server, like [nginx](http://nginx.org/).
 
+#### **IF YOU INSTALL POGLY TO A SUBDOMAIN OR FOLDER**
+You will need to modify your `packages.json` so that react builds relative paths correctly. 
+
+To do this, add a `homepage` entry with the URL to your pogly instance, including the relative path. Examples:
+
+`"homepage": "http://pogly.mywebsite.com/",`
+
+`"homepage": "https://mywebsite.com/pogly",`
+
+You must then rebuild with the above commands. 
+
 You have completed the frontend setup. In your browser, navigate to: http://localhost:3006, or if you used a web-server, replace 3006 with whatever port you've configured it with.
