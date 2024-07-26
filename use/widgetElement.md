@@ -90,6 +90,10 @@ body {
 
 Loops are useful and can be used for all sorts of fun stuff but you should be very careful because they might have dire consequences. When creating loops, especially `while` ones, you need to be extra careful that you **do not** make an endless loop. Due to everything running on one thread, an infinite loop can brick the whole Pogly instance and only way to "fix" it, is to completely wipe the SpacetimeDB module.
 
+### Audio playing widgets
+
+If your widget plays audio, make sure who ever is using the overlay has the source on a different audio track in case of DMCA related stuff! 
+
 ### Have questions or suggestions?
 
 Feel free to join our [Discord](https://discord.gg/uPQsBaVdB7)!
