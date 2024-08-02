@@ -73,6 +73,8 @@ Keep this client-side / deterministic nature in mind when making your widgets!
 
 Due to Widgets actually being just an iframe, getting the widget to be the correct size can be a bit difficult. A sure way to make widget content to be the same size as the actual widget element, consider creating a div container and setting the container width and height to `100vw` and `100vh`. There might still be a little border between the widget content and widget element but you can get rid of that by setting the widget content's `body` margin to 0.
 
+Scaling anything (including text) inside the widget should be done using `vw` and `vh` to make sure the text is correct size both in the editor and overlay. 
+
 If you're feeling lazy, just copy this into your `style` tab.
 
 ```
