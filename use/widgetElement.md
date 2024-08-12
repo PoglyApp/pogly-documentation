@@ -73,6 +73,8 @@ Keep this client-side / deterministic nature in mind when making your widgets!
 
 Due to Widgets actually being just an iframe, getting the widget to be the correct size can be a bit difficult. A sure way to make widget content to be the same size as the actual widget element, consider creating a div container and setting the container width and height to `100vw` and `100vh`. There might still be a little border between the widget content and widget element but you can get rid of that by setting the widget content's `body` margin to 0.
 
+Scaling anything (including text) inside the widget should be done using `vw` and `vh` to make sure the widget content is correct the size both in the editor and overlay. 
+
 If you're feeling lazy, just copy this into your `style` tab.
 
 ```
@@ -89,6 +91,10 @@ body {
 ### While( don't! ) {}
 
 Loops are useful and can be used for all sorts of fun stuff but you should be very careful because they might have dire consequences. When creating loops, especially `while` ones, you need to be extra careful that you **do not** make an endless loop. Due to everything running on one thread, an infinite loop can brick the whole Pogly instance and only way to "fix" it, is to completely wipe the SpacetimeDB module.
+
+### Audio playing widgets
+
+If your widget plays audio, make sure who ever is using the overlay has the source on a different audio track in case of DMCA related stuff! 
 
 ### Have questions or suggestions?
 
