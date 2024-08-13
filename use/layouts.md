@@ -44,7 +44,7 @@ Using layouts on the overlay side is super simple. If you want to give all the p
 
 If you want to manually choose which layout to show, just provide the `&layout=` parameter in the URL with the name of the layout and the overlay will always show that one. Note: Layout name is case sensitive, as mentioned above, so make sure you write it **exactly** the same way it's shown in the editor.
 
-Ability to choose which layout to show, provides great benefit. You can have multiple Pogly browser sources and have them all point towards a different layout so even if your editors are slacking, you can manually just switch between layouts that way.
+Ability to choose which layout to show, provides great benefit. You can have multiple Pogly browser sources and have them all point towards a different layout so even if your editors are slacking, you can manually just switch between layouts that way. You can also show multiple layouts at the same time by just having multiple sources visible at the same time.
 
 In this example, I have a separate source for automatic layout, which is just the overlay URL without a `&layout=` parameter and 3 different other sources with each one pointing towards a specific layout.
 
