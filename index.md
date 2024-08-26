@@ -1,9 +1,23 @@
 # Pogly Standalone Documentation
 
 ## Installation
-Installing Pogly Standalone can be broken down into three parts: installing prerequisites, setting up the frontend, and publishing your SpacetimeDB module.
+There are several ways to install Pogly Standalone:
+- [Publish a module to SpacetimeDB's testnet](/install/testnet.md). This is the simplest and fastest way to get up and running, but has the drawback that any data stored is subject to be wiped at any time without warning.
+- [Run the Docker image](/install/docker.md). This is an all-in-one container for easy deployment.
+- [Self-host an instance](/install/manual.md). This provides data permanence and an optional self-hosted frontend.
 
-[Click here for the detailed installation instructions.](./install.md)
+This table shows a more detailed comparison of installation methods. Please note that this is not a comprehensive list, just the ones that make sense.
+Data Integrity is explained [here](/install/testnet.md#warning).
+
+| Backend                              | Frontend                              | Data Integrity     | Difficulty             |
+|--------------------------------------|---------------------------------------|--------------------|------------------------|
+| [Testnet](/install/testnet.md)       | Pogly.gg                              | :x:                | :green_circle:         |
+| [Manual](/install/manual.md)         | Pogly.gg                              | :heavy_check_mark: | :large_orange_diamond: |
+| [Docker](/install/docker.md)         | [Docker](/install/docker.md)          | :heavy_check_mark: | :large_orange_diamond: |
+| [Manual](/install/manual.md#backend) | [Manual](/install/manual.md#frontend) | :heavy_check_mark: | :small_red_triangle:   |
+
+
+For assistance with any of the above we are available in our [Discord](https://discord.gg/uPQsBaVdB7).
 
 ## What is Pogly Standalone?
 
@@ -21,7 +35,7 @@ This documentation is for the Standalone version. In the future, we will offer a
 
 We hope to provide in-depth documentation for both the streamers and editors that are going to use Pogly as an integral part of their stream. 
 
-[Click here for detailed documentation on using Pogly Standalone.](./use/index.md)
+[Click here for detailed documentation on using Pogly Standalone.](/use/index.md)
 
 ## Developing Pogly Standalone
 
@@ -29,4 +43,4 @@ In addition to streamer and user documentation, our goal is to provide relativel
 
 While we can't promise your code will be merged, we welcome any/all PR's and greatly appreciate your willingness to help out and contribute! Speaking of contributing, we should have full contribution guidelines... *soon*.
 
-[Click here for detailed documentation on developing in Pogly Standalone.](./develop/index.md)
+[Click here for detailed documentation on developing in Pogly Standalone.](/develop/index.md)
