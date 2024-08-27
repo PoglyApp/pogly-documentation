@@ -2,6 +2,8 @@
 ## About
 This installation method utilizes SpacetimeDB's Testnet along with Pogly's Website to give the easiest installation possible.
 
+There are two ways to use Pogly with this method: Utilizing the Discord bot or publishing the module yourself. Both methods are detailed below.
+
 ### WARNING
 SpacetimeDB's testnet, while free, has two major constraints:
 - Limited Energy
@@ -11,7 +13,12 @@ SpacetimeDB's testnet, while free, has two major constraints:
 
 See [SpacetimeDB's Testnet page](https://spacetimedb.com/docs/deploying/testnet) for more info .
 
-## Installation
+## Discord Installation
+1. Run the /publish command in discord
+2. Visit https://standalone.pogly.gg/
+3. Proceed with [first time setup](/use/firstTimeSetup.md).
+
+## Manual Installation
 This guide assumes you are running Windows 10+. If you are using other operating systems you may need to adjust the commands and paths listed.
 1. Install the [SpacetimeDB CLI](https://spacetimedb.com/install)
    1. Note: The binaries are available [here](https://github.com/clockworklabs/SpacetimeDB/releases/latest) if you don't want to install it
