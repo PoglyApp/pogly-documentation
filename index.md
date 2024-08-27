@@ -9,12 +9,13 @@ There are several ways to install Pogly Standalone:
 This table shows a more detailed comparison of installation methods. Please note that this is not a comprehensive list, just the ones that make sense.
 Data Integrity is explained [here](/install/testnet.md#warning).
 
-| Backend                              | Frontend                              | Data Integrity     | Difficulty             |
-|--------------------------------------|---------------------------------------|--------------------|------------------------|
-| [Testnet](/install/testnet.md)       | Pogly.gg                              | :x:                | :green_circle:         |
-| [Manual](/install/manual.md)         | Pogly.gg                              | :heavy_check_mark: | :large_orange_diamond: |
-| [Docker](/install/docker.md)         | [Docker](/install/docker.md)          | :heavy_check_mark: | :large_orange_diamond: |
-| [Manual](/install/manual.md#backend) | [Manual](/install/manual.md#frontend) | :heavy_check_mark: | :small_red_triangle:   |
+| Backend                                       | Frontend                              | Data Integrity     | Difficulty             |
+|-----------------------------------------------|---------------------------------------|--------------------|------------------------|
+| [Testnet via Discord](/install/testnet.md)    | Pogly.gg                              | :x:                | :green_circle:         |
+| [Testnet self published](/install/testnet.md) | Pogly.gg                              | :x:                | :green_circle:         |
+| [Manual](/install/manual.md)                  | Pogly.gg                              | :heavy_check_mark: | :large_orange_diamond: |
+| [Docker](/install/docker.md)                  | [Docker](/install/docker.md)          | :heavy_check_mark: | :large_orange_diamond: |
+| [Manual](/install/manual.md#backend)          | [Manual](/install/manual.md#frontend) | :heavy_check_mark: | :small_red_triangle:   |
 
 
 For assistance with any of the above we are available in our [Discord](https://discord.gg/uPQsBaVdB7).
