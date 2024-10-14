@@ -178,12 +178,12 @@ See [SpacetimeDB's Testnet page](https://spacetimedb.com/docs/deploying/testnet)
 ## Manual Installation
 This guide assumes you are running Windows 10+. If you are using other operating systems you may need to adjust the commands and paths listed.
 1. Install the [SpacetimeDB CLI](https://spacetimedb.com/install)
-   1. Note: The binaries are available [here](https://github.com/clockworklabs/SpacetimeDB/releases/latest) if you don't want to install it
-2. Download the [SpacetimeDB Pogly module](https://github.com/PoglyApp/pogly-standalone/releases/latest/download/pogly-spacetimedb-module.wasm)
-3. Open up a terminal/cmd window and run the following:
+   1. Note: The binaries are available [here](https://github.com/clockworklabs/SpacetimeDB/releases/tag/v0.11.1-beta) if you don't want to install it
+2. Download the [SpacetimeDB Pogly module]([https://github.com/PoglyApp/pogly-standalone/releases/latest/download/pogly-spacetimedb-module.wasm](https://github.com/PoglyApp/pogly-standalone/releases/latest/download/spacetimedb-module.zip))
+3. Extract the .wasm file from the spacetimedb-module.zip and open up a terminal/cmd window and run the following:
   ```bash
 spacetime identity new -d
-spacetime publish -w %userprofile%\Downloads\pogly-spacetimedb-module.wasm pogly
+spacetime publish -w pogly.wasm pogly
 ```
 4. Visit https://standalone.pogly.gg/ and use module name pogly
 5. Proceed with [first time setup](/use/firstTimeSetup.md).
