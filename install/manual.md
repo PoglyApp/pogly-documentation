@@ -13,11 +13,11 @@ This guide is for manual install of the different Pogly components. You do not n
 spacetime start
 ```
 
-4. Open up a **SECOND** terminal window and publish the pogly module to your server:
+4. Open up a **SECOND** terminal window and publish the .wasm pogly module you downloaded (and extracted from the .zip) to your server:
 
 ```bash
 spacetime server add --default http://localhost:3000 local
-spacetime publish -w pogly-spacetimedb-module.wasm pogly
+spacetime publish -w pogly.wasm pogly
 ```
 
 ## Frontend (Optional)
