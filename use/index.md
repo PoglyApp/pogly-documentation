@@ -6,7 +6,7 @@ Selcome to the WIP user documentation for Pogly Standalone.
 
 Ready to jump in?
 
-Make sure you have [installed](../install.md) everything, then [click here for first time setup!](./firstTimeSetup.md)
+Make sure you have [installed](/index.md#installation) everything, then [click here for first time setup!](./firstTimeSetup.md)
 
 ## Features
 
