@@ -6,7 +6,7 @@ This guide is for manual install of the different Pogly components. You do not n
 1. Install the [SpacetimeDB CLI](https://spacetimedb.com/install)
     1. Note: The binaries are available [here](https://github.com/clockworklabs/SpacetimeDB/releases/latest) if you don't want to install it
 2. Download
-   the [SpacetimeDB Pogly module](https://github.com/PoglyApp/pogly-standalone/releases/latest/download/pogly-spacetimedb-module.wasm)
+   the [SpacetimeDB Pogly module](https://github.com/PoglyApp/pogly-standalone/releases/latest/download/spacetimedb-module.zip)
 3. Open up a terminal window and start the SpacetimeDB server:
 
 ```bash
