@@ -30,7 +30,6 @@ To utilize Pogly in your stream, you will have to make a browser source in your 
 - URL => Paste the `Overlay URL` here from the first time setup
 - Width => 1920 (1920 is required, if you want to adjust size, scale it after adding the browser source)
 - Height => 1080 (1080 is required, if you want to adjust size, scale it after adding the browser source)
-- Custom CSS => `body, html { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }`
 
 ![obs settings](../assets/obs_browser_source.png)
 
