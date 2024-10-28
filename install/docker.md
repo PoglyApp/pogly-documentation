@@ -10,7 +10,7 @@ Pogly provides a self-contained Docker image that you can spin up with minimal e
 ## Docker Run
 Example docker run command:
 ```bash
-docker run -p 80:80 -v pogly-keys:/etc/spacetime -v pogly-data:/stdb ghcr.io/poglyapp/pogly:main
+docker run -p 80:80 -v pogly-keys:/etc/spacetimedb -v pogly-data:/stdb ghcr.io/poglyapp/pogly:main
 ```
 
 ## Docker Compose
@@ -23,8 +23,11 @@ services:
     ports:
       - 80:80/tcp
     volumes:
-      - pogly-keys:/etc/spacetime
+      - pogly-keys:/etc/spacetimedb
       - pogly-data:/stdb
+    # Optional, if you'd like multiple modules you can specify the names here, space seperated
+    # environment:
+    #   MODULES: "pogly module2 module3"
 volumes:
   pogly-keys:
   pogly-data:
@@ -36,6 +39,13 @@ Once the container is running you can visit http://localhost in your browser. Se
 - Module name: `pogly`
 
 Once connected, proceed with [first time setup](/use/firstTimeSetup.md).
+
+## Multiple modules
+If you'd like to host multiple modules on the same container just add an environment variable called `MODULES` and set your module names seperated by spaces.
+
+You can add more modules at any time, they will be added on container restart.
+
+Note: removing modules from this variable will NOT delete them.
 
 ## Reverse Proxying
 The container can also be reverse proxied without issue. The custom domain for the example below would be `wss://pogly.example.com`.
