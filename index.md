@@ -4,8 +4,8 @@
 There are several ways to install Pogly Standalone:
 - [Pogly Cloud](https://discord.gg/uPQsBaVdB7). You can publish an instance with our Discord bot in our Discord server for free and connect to it through our [web portal](https://standalone.pogly.gg).
 - [Self-host an instance](/install/manual.md). This provides data permanence and an optional self-hosted frontend.
+- [Run the Docker image](/install/docker.md). This is an all-in-one container for easy deployment.
 <!-- - [Publish a module to SpacetimeDB's testnet](/install/testnet.md). This is the simplest and fastest way to get up and running, but has the drawback that any data stored is subject to be wiped at any time without warning. -->
-<!-- - [Run the Docker image](/install/docker.md). This is an all-in-one container for easy deployment. -->
 
 This table shows a more detailed comparison of installation methods. Please note that this is not a comprehensive list, just the ones that make sense.
 Data Integrity is explained [here](/install/testnet.md#warning).
@@ -17,7 +17,6 @@ Data Integrity is explained [here](/install/testnet.md#warning).
 | [Docker](/install/docker.md)                 | [Docker](/install/docker.md)          | :heavy_check_mark: | :large_orange_diamond: |
 | [Manual](/install/manual.md#backend)          | [Manual](/install/manual.md#frontend) | :heavy_check_mark: | :small_red_triangle:   |
 
-<!--| [Docker](/install/docker.md) (Current broken)                 | [Docker](/install/docker.md)          | :heavy_check_mark: | :large_orange_diamond: | -->
 <!--| [Testnet self published](/install/testnet.md) | Pogly.gg                              | :x:                | :green_circle:         | -->
 
 
