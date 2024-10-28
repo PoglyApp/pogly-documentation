@@ -25,12 +25,14 @@ services:
     volumes:
       - pogly-keys:/etc/spacetimedb
       - pogly-data:/stdb
+      - pogly-config:/root/.spacetime
     # Optional, if you'd like multiple modules you can specify the names here, space seperated
     # environment:
     #   MODULES: "pogly module2 module3"
 volumes:
   pogly-keys:
   pogly-data:
+  pogly-config:
 ```
 
 ## Usage
