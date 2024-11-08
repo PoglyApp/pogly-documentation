@@ -18,7 +18,7 @@ Example compose file:
 ```yaml
 services:
   pogly:
-    image: ghcr.io/poglyapp/pogly
+    image: ghcr.io/poglyapp/pogly:main
     restart: always
     ports:
       - 80:80/tcp
@@ -29,6 +29,7 @@ services:
     # Optional, if you'd like multiple modules you can specify the names here, space seperated
     # environment:
     #   MODULES: "pogly module2 module3"
+
 volumes:
   pogly-keys:
   pogly-data:
