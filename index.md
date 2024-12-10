@@ -30,7 +30,7 @@ With the power of Pogly, you can condense your cluttered OBS overlays into a sin
 
 Editors can add, edit, and delete overlay elements, with the changes being displayed in real-time while you stream. Why tab over to your OBS to update an overlay when you can have your chat moderators do it for you? While they're at it, perhaps they can add a fun emoji or meme to encourage chat interaction. With Text, Image and Widget elements, the opportunities for creativity are endless.
 
-[Pogly_Standalone_v0.1.0_Reel.webm](https://github.com/PoglyApp/pogly-standalone/assets/36650721/4d61ebb2-39f2-45c2-b736-e9bbe1500c02)
+[Pogly_Standalone_v0.1.0_Reel.webm](https://github.com/user-attachments/assets/24a960a6-f527-4b1a-9c15-7ac2cd4fee2d)
 
 This documentation is for the Standalone version. In the future, we will offer a cloud version where the hosting and scaling is done for you. If this is something that interests you, feel free to sign up for the [waitlist on our website](https://pogly.gg).
 
