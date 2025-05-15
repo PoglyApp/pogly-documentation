@@ -20,7 +20,8 @@ When connecting to a Pogly module for the first time, you will be prompted with 
 
 **NOTE:** The person who finishes this setup will be marked as the **owner**. Ownership cannot be transferred without wipining/resetting the entire module!
 
-- Twitch Channel => Your twitch stream name here. Example: BobRoss
+- Channel name => Name of the channel this module will be used for.
+  - This is only for the stream preview found at the center of the canvas.
 - [Element Update Hz](./refreshRate.md) => The rate at which clients push update to the server. Higher means faster but more data.
 - Debug Mode => If enabled, will log every reducer state change. Vastly increases storage consumption.
 - [Authentication Mode](./authentication.md) => If enabled, guests will have to provide the specified key in order to connect.
