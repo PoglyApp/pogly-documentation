@@ -8,7 +8,6 @@ There are several ways to install Pogly Standalone:
 <!-- - [Publish a module to SpacetimeDB's testnet](/install/testnet.md). This is the simplest and fastest way to get up and running, but has the drawback that any data stored is subject to be wiped at any time without warning. -->
 
 This table shows a more detailed comparison of installation methods. Please note that this is not a comprehensive list, just the ones that make sense.
-Data Integrity is explained [here](/install/testnet.md#warning).
 
 | Backend                                       | Frontend                              | Data Integrity     | Difficulty             |
 |-----------------------------------------------|---------------------------------------|--------------------|------------------------|
