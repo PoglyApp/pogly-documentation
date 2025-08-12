@@ -54,8 +54,8 @@ In this example, I have a separate source for automatic layout, which is just th
 
 Automatic layout (determined by which layout is selected through the editor):
 
-`https://standalone.pogly.gg/overlay?module=YOUR_MDOULE_NAME`
+`https://standalone.pogly.gg/overlay?module=YOUR_MODULE_NAME`
 
 Specific existing layout:
 
-`https://standalone.pogly.gg/overlay?module=YOUR_MDOULE_NAME&layout=DocExample`
+`https://standalone.pogly.gg/overlay?module=YOUR_MODULE_NAME&layout=DocExample`
