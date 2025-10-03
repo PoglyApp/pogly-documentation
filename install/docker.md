@@ -39,6 +39,7 @@ volumes:
 ## Usage
 Once the container is running you can visit http://localhost in your browser. Select **Custom** and input the following:
 - Custom domain: `ws://localhost`
+    - If you set the Docker container run on a different port than 80, the custom domain needs to be `ws://localhost:PORT`.
 - Module name: `pogly`
 
 Once connected, proceed with [first time setup](/use/firstTimeSetup.md).
