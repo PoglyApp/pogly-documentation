@@ -4,6 +4,21 @@ This is an in depth guide on Pogly usage and should contain everything you need 
 
 Note: This guide assumes you're using modules hosted by Pogly. Some steps may vary for self-hosters.
 
+## Table of Contents
+
+- [Pogly beginner's guide](#pogly-beginners-guide)
+  - [Creating your first module](#creating-your-first-module)
+  - [Connecting to your module](#connecting-to-your-module)
+  - [Module onboarding](#module-onboarding)
+  - [Setting up the overlay](#setting-up-the-overlay)
+  - [Making sure everything works](#making-sure-everything-works)
+  - [Giving access to collaborators](#giving-access-to-collaborators)
+  - [Adding custom elements](#adding-custom-elements)
+  - [Layouts](#layouts)
+  - [Modifying module settings](#modifying-module-settings)
+  - [Keybinds](#keybinds)
+  - [Still need help?](#still-need-help)
+
 ## Creating your first module
 
 At the moment, Pogly is <b>free to use</b> and you can create as many modules as you want. While in theory you could use one module for multiple streamers, it's recommended to have one module per streamer for performance reasons.
@@ -14,7 +29,7 @@ To create a module, join [Pogly Discord](https://discord.gg/pogly). In any publi
 
 ## Connecting to your module
 
-Once you've successfully created your module, in your browser of choice open https://cloud.pogly.gg. You'll be prompted to authenticate using `SpacetimeAuth` which is our [OIDC provider](https://openid.net/developers/how-connect-works/). If you'd like to know more about how we utilize `SpacetimeAuth` and what information we get from you, you can read our [authentication documentation](#). Once authenticated, input the name of the module you just created into `module name` input field and press `connect`.
+Once you've successfully created your module, in your browser of choice open https://cloud.pogly.gg. You'll be prompted to authenticate using `SpacetimeAuth` which is our [OIDC provider](https://openid.net/developers/how-connect-works/). If you'd like to know more about how we utilize `SpacetimeAuth` and what information we get from you, you can read our [authentication documentation](./authentication.md). Once authenticated, input the name of the module you just created into `module name` input field and press `connect`.
 
 ![login screen](../assets/login_screen.png)
 
@@ -36,7 +51,7 @@ When you connect to your module for the first time, you will be prompted to do a
    - Password protection
      - Forces everyone to input a custom module password when connecting.
    - Strict mode
-     - TL;DR Wont let normal users do specific actions, you can read more about it [here](#).
+     - TL;DR Wont let normal users do specific actions, you can read more about it [here](./strictMode.md).
 5. Finish
    - Explanation on what to do next.
 
@@ -66,17 +81,17 @@ Once you've finished module onboarding and created your browser source, you can 
 
 Now that you have everything setup and things work, you can give access to your friends, chat moderators or other collaborators. Giving access is as easy as giving them your <b>module namd</b> and <b>module password</b> (If you set one up). They connect to your module the same way as you did, in https://cloud.pogly.gg.
 
-If you enabled [strict mode](#), you can grant permissions to users by right clicking their bubble top right of the editor <b>once they've connected</b>.
+If you enabled [strict mode](./strictMode.md), you can grant permissions to users by right clicking their bubble top right of the editor <b>once they've connected</b>.
 
 ![grant moderator](../assets/grant_moderator.png)
 
 ## Adding custom elements
 
-Pogly supports 2 different types of custom elements: [images](#) and [widgets](#). To upload a new images to your module, open the `Images` category and press `Add image`.
+Pogly supports 2 different types of custom elements: [images](./imageElement.md) and [widgets](./widgetElement.md). To upload a new images to your module, open the `Images` category and press `Add image`.
 
 <b>IMPORTANT!</b> Pogly currently supports uploading of images through 2 different means, by file and by URL. We <b>HIGHLY</b> recommend you upload images using URL instead of file as uploading them as files <b>will increase your module's load times SIGNIFICANTLY</b>. We also recommend deleting images you don't frequently use anymore by right clicking it in the menu and pressing delete.
 
-Your module comes with various different widgets. As the widget system can be pretty complex and hard to understand unless you're into programming, we recommend you read the [widget documentation](#). Here is a very quick rundown for basic widget usage:
+Your module comes with various different widgets. As the widget system can be pretty complex and hard to understand unless you're into programming, we recommend you read the [widget documentation](./widgetElement.md). Here is a very quick rundown for basic widget usage:
 
 Most widgets are configured using widget variables. It is recommended to first spawn the widget and then editing the variables so the changes do not get saved in the base widget element. Spawn your desired widget and double click it in the canvas. A widget editor modal will appear and you can see the customizable variable the widget developer has added which allow you to do specific modifications without actually editing any of the code. 99% of the time these are the only things you need to edit to use the widget, unless you specifically want to modify the widget functionality.
 
@@ -86,7 +101,7 @@ You can find more community made widgets in [Pogly Discord](https://discord.gg/p
 
 ## Layouts
 
-Layouts are a way for you to keep your module clean by splitting your content into their own "scenes". Layouts are a powerful tool and we recommend you read the in depth [layouts documentation](#) to learn how to fully utilize them.
+Layouts are a way for you to keep your module clean by splitting your content into their own "scenes". Layouts are a powerful tool and we recommend you read the in depth [layouts documentation](./layouts.md) to learn how to fully utilize them.
 
 ## Modifying module settings
 
@@ -96,7 +111,7 @@ If for whatever reason you need to modify the settings you set during module onb
 
 Pogly has a lot of keybinds for various different actions. Unfortunately we do not currently display these hotkeys inside the app but this will change very soon.
 
-[Find all keybinds here](#)
+[Find all keybinds here](./userInput.md)
 
 You can more easily and faster upload new images by drag and dropping it over the element selection menu. This automatically fills the upload modal fields and if your image name is proper, all you have to do is press upload!
 
