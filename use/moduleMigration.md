@@ -17,6 +17,9 @@ If you want more in depth or video walkthrough, scroll down.
 6. Connect to your <b>_new_</b> module and finish module onboarding.
 7. At the top of the page, press `Settings` ➔ `Advanced` ➔ `Improt data`.
 8. Select the JSON file you just downloaded from the old module, select `Clear existing data` and press `Upload`.
+9. Update your browser source
+   - Since the subdomain has changed, you need to swap `standalone` to `cloud` in your browser source!
+   - If you picked a new module name, you also need to change that in the URL. `?module=OLD_NAME` => `?module=NEW_NAME`
 
 Your module should now look exactly the same as the old module.
 
@@ -35,6 +38,9 @@ First you must download your data from the older Pogly version. You can do this 
 Once you have your data exported, head over to [Pogly Discord](https://discord.gg/pogly) and re-run the `/publish` command. The new module name can be the same name as your old module or something new. Once your new module has been published, head over to https://cloud.pogly.gg and authenticate using either Twitch, KICK or Google and connect to the new module you just created. You will be prompted to finish the new module onboarding. Once you've finished the onboarding, open up `Settings` again and under `Advanced`, select `Import`. A new popup will appear, asking you to select a file. Select the JSON file you just downloaded and press `Clear existing data` and press `Upload`. Your module should now look the same way it did before the migration!
 
 ![import guide](../assets/ImportGuide.png)
+
+## Update browser source
+Since we're switching subdomains, you need to also update your browser source in your streaming tool! If you kept the same module name, all you need to do is change `standalone` to `cloud` in the URL. If you also picked a new module name, you need to change that as well.
 
 ## What about my old module?
 
