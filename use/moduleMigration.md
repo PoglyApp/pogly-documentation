@@ -6,7 +6,7 @@ This is written in the context of migrating from version `0.2.2` to `0.3.0` but 
 
 ## TL;DR step by step
 
-If you want more in depth or video walk through, scroll down.
+If you want more in depth or video walkthrough, scroll down.
 
 1. Connect to your old module in https://standalone.pogly.gg.
 2. At the top of the page, press `Settings` ➔ `Advanced` ➔ `Export data`.
