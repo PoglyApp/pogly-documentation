@@ -1,5 +1,7 @@
 # First Time Setup
 
+# [OUTDATED] Read [Pogly beginner's guide](./beginnerGuide.md) instead!!!
+
 ## Connecting to your Pogly module for the first time
 
 First you must select where you module is hosted.
