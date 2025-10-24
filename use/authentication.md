@@ -10,11 +10,12 @@ It allows us to manage who is connected to your module and ensures that every co
 
 1. User chooses a login provider
 2. They log in on that platform
-   - The provider (e.g. Twitch) authenticates the user and returns a secure token called a JWT (JSON Web Token).
-3. SpacetimeAuth verifies the token
+   - The provider (e.g. Twitch) authenticates the user and returns a secure token called a JWT (JSON Web Token)
+3. SpacetimeAuth uses the token to create unique SpacetimeAuth user in it's database
+4. SpacetimeAuth returns its own secure JWT to Pogly
 
-   - Pogly sends this token to SpacetimeDB.
-   - SpacetimeAuth checks:
+   - Pogly sends this token to SpacetimeDB backend server
+   - SpacetimeDB backend server checks:
 
      - Is the token valid?
      - Did it come from the correct provider (Twitch, KICK or Google)?
@@ -22,7 +23,7 @@ It allows us to manage who is connected to your module and ensures that every co
 
    - It does this by looking at the token’s issuer (iss) and subject (sub) claims and verifying the digital signature using the provider’s OIDC configuration.
 
-4. A user identity is created
+5. A user identity is created, and sent back to Pogly
    - Once verified, SpacetimeDB creates or reuses a user identity based on that token.
 
 ## What Information does Pogly get?
@@ -44,7 +45,7 @@ Pogly only requires the very basic information like `User ID`, `Username` and `P
   - Profile picture is displayed in the members list and connected users list.
 
 - Email
-  - Pogly does not use your email for anything. If this would ever change in the future, you will be notified prior and we will require you to manually consent to it first. Why does Pogly ask for email if it isn't used anywhere? Because it is the bare minimum you need to select in OIDC settings.
+  - Pogly itself does not use your email for anything. SpacetimeAuth, however, uses your email and selected OAuth provider as the primary key for your unique SpacetimeAuth user profile. If this would ever change in the future, you will be notified prior and we will require you to manually consent to it first. 
 
 ## I want Pogly to delete my user information
 
@@ -53,3 +54,7 @@ You can request any data deletion by emailing us at `hello@pogly.gg`.
 ## I have more questions
 
 If you have questions or concerns about SpacetimeAuth or how Pogly handles your data, please pop by our [Discord](https://discord.gg/pogly). We're more than happy to discuss any of your concerns!
+
+## I have even more questions and authentication and authorization are really cool and I want to learn more
+
+Check out this awesome blog post written by our friends at SpacetimeDB - [Who are you? Who am I to you?](https://spacetimedb.com/blog/who-are-you).
