@@ -1,47 +1,71 @@
-# Pogly 0.3.0 migration
+# Pogly 0.3.0 Migration Guide
 
-This is written in the context of migrating from version `0.2.2` to `0.3.0` but same steps work for any other future personal or required migration.
+This guide walks you through migrating from **Pogly 0.2.2** to **Pogly 0.3.0**.  
+The same steps apply to any future migrations as well.
 
-<b>If you run into any issues during the migration or require any help at all, PLEASE ASK FOR HELP IN [OUR DISCORD](https://discord.gg/pogly)!</b>
+> **Need help?**  
+> If you run into _any_ issues or have questions, please reach out in [our Discord](https://discord.gg/pogly), we’re happy to help!
 
-## TL;DR step by step
+## TL;DR (Quick Steps)
 
-If you want more in depth or video walkthrough, scroll down.
+(Scroll down for detailed instructions or a video walkthrough)
 
-1. Connect to your old module in https://standalone.pogly.gg.
-2. At the top of the page, press `Settings` ➔ `Advanced` ➔ `Export data`.
-3. Select all 3 options and press `Download`.
-4. In [Pogly Discord](https://discord.gg/pogly), re-run the `/publish` command.
-   - The new module can have the same name or something new.
-5. Head over to https://cloud.pogly.gg and authenticate using either Twitch, KICK or google
-6. Connect to your <b>_new_</b> module and finish module onboarding.
-7. At the top of the page, press `Settings` ➔ `Advanced` ➔ `Improt data`.
-8. Select the JSON file you just downloaded from the old module, select `Clear existing data` and press `Upload`.
-9. Update your browser source
-   - Since the subdomain has changed, you need to swap `standalone` to `cloud` in your browser source!
-   - If you picked a new module name, you also need to change that in the URL. `?module=OLD_NAME` => `?module=NEW_NAME`
+1. Go to **[https://standalone.pogly.gg](https://standalone.pogly.gg)** and connect to your **old module**.
+2. Click **Settings → Advanced → Export Data**.
+3. Select **all three** options and click **Download**.
+4. In [Pogly Discord](https://discord.gg/pogly), run the `/publish` command again.
+   - You can reuse your old module name or choose a new one.
+5. Visit **[https://cloud.pogly.gg](https://cloud.pogly.gg)** and log in with **Twitch**, **Kick**, or **Google**.
+6. Connect to your **new module** and reach final step of onboarding.
+7. Select your sqlite file under **Load backup** and click **Finish** and wait for the upload to finish.
+   - **NOTE**: Depending on your module size, this could take some time. **DO NOT CLOSE THE WINDOW!**
+8. Update your **browser source** in your streaming software:
+   - Change `standalone` → `cloud` in the URL.
+   - If you renamed your module, update `?module=OLD_NAME` → `?module=NEW_NAME`.
 
-Your module should now look exactly the same as the old module.
+🎉Your module should now look **exactly the same** as before!
 
-## Video walkthrough
+## Video Walkthrough
 
-(to-do)
+_(Coming soon!)_
 
-## Exporting your data from 0.2.2
+## Exporting Your Data (from 0.2.2)
 
-First you must download your data from the older Pogly version. You can do this by connecting to your module in https://standalone.pogly.gg. Once connected, open up the `Settings` menu from top of the page. Under `Advanced` tab, press `Export data`. A new menu will open up with 3 selection options. If you wish to migrate all your data, select all 3 options (`ElementData`, `Elements` and `Layout`). Once you've selected the data you want to migrate, press `Download`. A JSON file should be downloaded on to your computer.
+First, export your data from the older Pogly version:
 
-![export guide](../assets/ExportGuide.png)
+1. Go to **[https://standalone.pogly.gg](https://standalone.pogly.gg)** and connect to your module.
+2. At the top, open **Settings → Advanced → Export Data**.
+3. In the export menu, select all three options:
+   - `ElementData`
+   - `Elements`
+   - `Layout`
+4. Click **Download** to save the `.sqlite` file to your computer.
 
-## Importing your data to 0.3.0
+![Export Guide](../assets/ExportGuide.png)
 
-Once you have your data exported, head over to [Pogly Discord](https://discord.gg/pogly) and re-run the `/publish` command. The new module name can be the same name as your old module or something new. Once your new module has been published, head over to https://cloud.pogly.gg and authenticate using either Twitch, KICK or Google and connect to the new module you just created. You will be prompted to finish the new module onboarding. Once you've finished the onboarding, open up `Settings` again and under `Advanced`, select `Import`. A new popup will appear, asking you to select a file. Select the JSON file you just downloaded and press `Clear existing data` and press `Upload`. Your module should now look the same way it did before the migration!
+## Importing Your Data (to 0.3.0)
 
-![import guide](../assets/ImportGuide.png)
+1. In [Pogly Discord](https://discord.gg/pogly), run the `/publish` command to create your **new module**.
+   - You can reuse your old name or pick a new one.
+2. Visit **[https://cloud.pogly.gg](https://cloud.pogly.gg)** and sign in with **Twitch**, **Kick**, or **Google**.
+3. Connect to your **new module** and finish onboarding **until the final step**.
+4. Before pressing **Finish**, select the sqlite file you just downloaded under **Load backup**.
+5. Once the backup is selected and you see a green checkmark, press **Finish**.
+6. Wait for upload to finish and the page to refresh
+   - **NOTE**: Depending on your module size, this could take some time. **DO NOT CLOSE THE WINDOW!**
 
-## Update browser source
-Since we're switching subdomains, you need to also update your browser source in your streaming tool! If you kept the same module name, all you need to do is change `standalone` to `cloud` in the URL. If you also picked a new module name, you need to change that as well.
+🎉 Your new module should now look identical to your old setup!
 
-## What about my old module?
+![Import Guide](../assets/ImportGuide.png)
 
-Once migrated, unless you specifically want to use the old module for whatever reason, you can leave it as it is and it will get purged in the future.
+## Updating Your Browser Source
+
+Since the subdomain has changed, you’ll need to update your browser source URL in your streaming tool:
+
+- Change `standalone` → `cloud` in the URL.
+- If you renamed your module, update `?module=OLD_NAME` → `?module=NEW_NAME`.
+
+## What Happens to the Old Module?
+
+You can leave your **old module** as it is, it will be automatically removed in the future.  
+If you’d like, you can continue using it temporarily, but we recommend migrating as soon as possible.
