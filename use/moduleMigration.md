@@ -26,8 +26,11 @@ The same steps apply to any future migrations as well.
 🎉Your module should now look **exactly the same** as before!
 
 ## Video Walkthrough
+Remember to update your browser source after migrating your module! ([Scroll down](#-Updating-Your-Browser-Source))
 
-_(Coming soon!)_
+https://github.com/user-attachments/assets/4ecdb626-2330-4bb2-838f-793f81eaf779
+
+
 
 ## Exporting Your Data (from 0.2.2)
 
