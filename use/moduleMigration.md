@@ -1,5 +1,7 @@
 # Pogly 0.3.0 Migration Guide
 
+Pogly has had a significant update which includes moving to a new, better server. This requires you to transfer your module in order to start using the new version. This process is quick and simple, just pick your desired walkthrough and follow the steps!
+
 This guide walks you through migrating from **Pogly 0.2.2** to **Pogly 0.3.0**.  
 The same steps apply to any future migrations as well.
 
