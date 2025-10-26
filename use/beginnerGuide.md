@@ -11,7 +11,8 @@ Note: This guide assumes you're using modules hosted by Pogly. Some steps may va
   - [Connecting to your module](#connecting-to-your-module)
   - [Module onboarding](#module-onboarding)
   - [Setting up the overlay](#setting-up-the-overlay)
-  - [Making sure everything works](#making-sure-everything-works)
+  - [Navigating the canvas](#setting-up-the-overlay)
+  - [Making sure everything works](#navigating-the-canvas)
   - [Giving access to collaborators](#giving-access-to-collaborators)
   - [Adding custom elements](#adding-custom-elements)
   - [Layouts](#layouts)
@@ -70,6 +71,10 @@ Create a new `Browser source` and fill the following settings:
 **NOTE:** If you stream in higher resolution, **the browser source size still needs to be 1920x1080!** Once you've finished creating the source, **stretch the source to cover the screen!**
 
 ![obs settings](../assets/obs_browser_source.png)
+
+## Navigating the canvas
+
+You can navigate on the canvas by holding down **scroll wheel / mouse 3** or using the  **WASD** keys. 
 
 ## Making sure everything works
 
