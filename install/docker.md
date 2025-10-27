@@ -13,7 +13,7 @@ Pogly provides a self-contained Docker image that you can spin up with minimal e
 ## Docker Run
 Example docker run command:
 ```bash
-docker run -p 80:80 -v pogly-keys:/etc/spacetimedb -v pogly-data:/stdb ghcr.io/poglyapp/pogly:main
+ sudo docker run -p 80:80 -v pogly-keys:/etc/spacetimedb -v pogly-data:/stdb ghcr.io/poglyapp/pogly:0.2.2-beta
 ```
 
 ## Docker Compose
