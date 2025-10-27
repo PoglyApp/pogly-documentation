@@ -4,13 +4,32 @@
 
 There are a whole bunch of shortcuts you might already be familiar with and some not.
 
-- `del` => Deletes selected element.
-- `ctrl + x` => Deletes selected element and copies it to clipboard.
-- `ctrl + d` => Duplicates selected element.
-- `ctrl + c` => Copies selected element.
-- `ctrl + v` => Pastes either a copied element, raw text or a raw image.
-- `arrow keys` => Nudges selected element slightly to given direction.
-- `shift + arrow key` => Nudge but with a larger adjustment.
+## == General Hotkeys ==
+
+- `Delete` => Deletes the currently selected element(s)
+- `CTRL+X` => Deletes the currently selected element, but saves it to your clipboard
+- `CTRL+C` => Copies the currently selected element to your clipboard
+- `CTRL+V` => Pastes from your clipboard, if it's an image URL, it automatically parses out the - image. If it's an element, it pastes the element. If it's text, it pastes the text.
+- `CTRL+D` => Duplicates the currently selected element
+
+## == Camera Controls ==
+
+- `Home` => Centers the camera on the stream preview
+- `CTRL`+Space/K => Opens the element spotlight search modal
+- `WASD` => Moves the camera around the canvas
+
+## == Element Specific Hotkeys ==
+
+- `SHIFT` + `Resize` => Keep aspect ratio during element scaling
+- `SHIFT+W` => Sets the selected element to "Warp" mode
+- `SHIFT+C` => Sets the selected element to "Crop" mode
+- `SHIFT+S` => Sets the selected element to "Scale" mode
+- `Page Up` => Sets transparency to 100 on the currently selected element(s)
+- `Page Down` => Sets transparency to 0 on the currently selected element(s)
+- `SHIFT+F` => Vertically flips the currently selected element
+- `CTRL+F` => Horizontally flips the currently selected element
+- `Arrow Keys` => Nudge currently selected element in that direction \*Can only move in 1 direction at a time
+- `Shift + Arrow Keys` => Big nudge currently selected element in that direction \*Can only move in 1 direction at a time
 
 ## Other usability
 

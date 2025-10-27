@@ -1,5 +1,4 @@
 # Strict Mode
-![Strict Mode](../assets/strict_mode.png)
 ## Summary
 This setting is set during the [first time setup](./firstTimeSetup.md) of a Pogly Standalone instance. It allows the instance owner to enable restrictions on who is allowed to create new Elements. 
 
