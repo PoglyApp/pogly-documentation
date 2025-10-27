@@ -2,6 +2,9 @@
 ## About
 Pogly provides a self-contained Docker image that you can spin up with minimal effort.
 
+# ⚠️LATEST POGLY VERSION CURRENTLY UNSUPPORTED! ⚠️
+## EXAMPLES **DO NOT WORK**! THIS WILL BE UPDATED SOON.
+
 ## Installation
 1. Install [Docker](https://docs.docker.com/engine/install/)
 2. Choose one of the below two installation methods. If you don't know which to choose, use the docker run command.
