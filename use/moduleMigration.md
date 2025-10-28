@@ -24,6 +24,7 @@ The same steps apply to any future migrations as well.
 8. Update your **browser source** in your streaming software:
    - Change `standalone` → `cloud` in the URL.
    - If you renamed your module, update `?module=OLD_NAME` → `?module=NEW_NAME`.
+   - **Make sure you do not have** `&domain=` **in your overlay URL**! (Unless you're self-hosting)
 
 🎉Your module should now look **exactly the same** as before!
 
@@ -69,6 +70,7 @@ Since the subdomain has changed, you’ll need to update your browser source URL
 
 - Change `standalone` → `cloud` in the URL.
 - If you renamed your module, update `?module=OLD_NAME` → `?module=NEW_NAME`.
+- **Make sure you do not have** `&domain=` **in your overlay URL**! (Unless you're self-hosting)
 
 ## What Happens to the Old Module?
 
