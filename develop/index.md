@@ -6,7 +6,7 @@ Currently, only the SpacetimeDB module is documented. The React/Typescript front
 
 ## SpacetimeDB
 
-Pogly utilizes a fresh new relational database system that also acts as the server, called [SpacetimeDB](https://spacetimedb.com/docs). Before attempting to develop in Pogly, it's highly recommended that you understand the fundamentals of SpacetimeDB, specifically:
+Pogly utilizes a fresh new relational database system that also acts as the server, called [SpacetimeDB](https://spacetimedb.com/?referral=Lethalchip). Before attempting to develop in Pogly, it's highly recommended that you understand the fundamentals of SpacetimeDB, specifically:
 
  - SpacetimeDB [C# Module documentation](https://spacetimedb.com/docs/modules/c-sharp)
  - SpacetimeDB [Typescript client SDK documentation](https://spacetimedb.com/docs/sdks/typescript)

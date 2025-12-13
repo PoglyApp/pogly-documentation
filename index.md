@@ -25,7 +25,7 @@ For assistance with any of the above we are available in our [Discord](https://d
 
 Pogly is a real-time collaborative stream overlay. Think Figma, but for your OBS overlay sources. 
 
-With the power of Pogly, you can condense your cluttered OBS overlays into a single, powerful browser source. But wait, how is that like Figma? [SpacetimeDB](https://spacetimedb.com) enables Pogly to communicate in real-time with multiple users; we call them Editors.
+With the power of Pogly, you can condense your cluttered OBS overlays into a single, powerful browser source. But wait, how is that like Figma? [SpacetimeDB](https://spacetimedb.com/?referral=Lethalchip) enables Pogly to communicate in real-time with multiple users; we call them Editors.
 
 Editors can add, edit, and delete overlay elements, with the changes being displayed in real-time while you stream. Why tab over to your OBS to update an overlay when you can have your chat moderators do it for you? While they're at it, perhaps they can add a fun emoji or meme to encourage chat interaction. With Text, Image and Widget elements, the opportunities for creativity are endless.
 
