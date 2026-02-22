@@ -50,7 +50,7 @@ Once you've whitelisted a user, they will appear under the **pending** section. 
 
 When the user connects to the module for the first time, they are granted permissions based on the role you assigned to them and they will now appear in the **editors** section.
 
-![accepted whitelist](../assets/accepted_Whitelist.png)
+![accepted whitelist](../assets/accepted_whitelist.png)
 
 # Updating individual editor's permissions
 
