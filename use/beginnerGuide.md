@@ -13,7 +13,7 @@ Note: This guide assumes you're using modules hosted by Pogly. Some steps may va
   - [Setting up the overlay](#setting-up-the-overlay)
   - [Navigating the canvas](#setting-up-the-overlay)
   - [Making sure everything works](#navigating-the-canvas)
-  - [Giving access to collaborators](#giving-access-to-collaborators)
+  - [Adding new editors to your module](#adding-new-editors-to-your-module)
   - [Adding custom elements](#adding-custom-elements)
   - [Layouts](#layouts)
   - [Modifying module settings](#modifying-module-settings)
@@ -47,12 +47,8 @@ When you connect to your module for the first time, you will be prompted to do a
 3. Channel
    - The channel name as shown on the streaming platform.
    - Youtube streamers need to input their Youtube <b>Channel ID!</b>
-4. Security
-   - Securing your module is <b>very important</b>. Although these options are optional, we <b>HIGHLY RECOMMEND YOU ENABLE BOTH SETTINGS!</b>
-   - Password protection
-     - Forces everyone to input a custom module password when connecting.
-   - Strict mode
-     - TL;DR Wont let normal users do specific actions, you can read more about it [here](./strictMode.md).
+4. Editors
+   - Here you can whitelist other users to use your module. **Users need to be manually whitelisted for them to be allowed to connect to your module!** Find more information below! ([Adding new editors to your module](#adding-new-editors-to-your-module))
 5. Finish
    - Explanation on what to do next.
 
@@ -74,7 +70,7 @@ Create a new `Browser source` and fill the following settings:
 
 ## Navigating the canvas
 
-You can navigate on the canvas by holding down **scroll wheel / mouse 3** or using the  **WASD** keys. 
+You can navigate on the canvas by holding down **scroll wheel / mouse 3** or using the **WASD** keys.
 
 ## Making sure everything works
 
@@ -82,13 +78,11 @@ Once you've finished module onboarding and created your browser source, you can 
 
 ![usage test](../assets/pogly_usage_test.png)
 
-## Giving access to collaborators
+## Adding new editors to your module
 
-Now that you have everything setup and things work, you can give access to your friends, chat moderators or other collaborators. Giving access is as easy as giving them your <b>module namd</b> and <b>module password</b> (If you set one up). They connect to your module the same way as you did, in https://cloud.pogly.gg.
+You were prompted to optionally add new editors to your module during onboarding. If you didn't add any editors at the time or wish to add more now, you can do so by navigating to **settings -> editors**. To add a new editor, simply write their username into the **username** field under **add editor** section. Select the platform the user is from. **This platform needs to be the platform the user uses to authenticate to Pogly!!**
 
-If you enabled [strict mode](./strictMode.md), you can grant permissions to users by right clicking their bubble top right of the editor <b>once they've connected</b>.
-
-![grant moderator](../assets/grant_moderator.png)
+If you wish to learn more about permissions and roles, please read the [in depth permissions documentation](https://github.com/PoglyApp/pogly-documentation/blob/main/use/permissions.md)!
 
 ## Adding custom elements
 

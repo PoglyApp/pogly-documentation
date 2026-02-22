@@ -31,6 +31,12 @@ There are a whole bunch of shortcuts you might already be familiar with and some
 - `Arrow Keys` => Nudge currently selected element in that direction \*Can only move in 1 direction at a time
 - `Shift + Arrow Keys` => Big nudge currently selected element in that direction \*Can only move in 1 direction at a time
 
+## == Undo history ==
+
+- `CTRL+Z` => Undo a previous action
+- `CTRL+Y` => Undo a previous undo
+- `CTRL+SHIFT+Z` => Undo a previous undo
+
 ## Other usability
 
 ### Image uploading
