@@ -58,6 +58,5 @@ If you wish to modify specific user's permissions, you can do so by clicking the
 
 ![permissions edit](../assets/permissions_edit.png)
 
-# Deleting user from the module
-
-At any point, you can remove user from accessing your module by simply clicking the arrow button under **actions** and pressing **remove**.
+# Disabling access for an editor to the module
+You can either remove the **connect** permission directly from the user, which will leave them into the module but they will be unable to connect to the module or you can remove user from accessing your module by simply clicking the arrow button under **actions** and pressing **remove**.
