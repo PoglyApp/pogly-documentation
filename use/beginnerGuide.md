@@ -104,7 +104,7 @@ Layouts are a way for you to keep your module clean by splitting your content in
 
 ## Modifying module settings
 
-If for whatever reason you need to modify the settings you set during module onboarding, you can find them in `Settings` -> `Owner` tab. Here you can also find the moderator list in case you need to remove a moderator while they're not connected. Currently the list does not show their username but this will be updated very soon.
+If for whatever reason you need to modify the settings you set during module onboarding, you can find them in `Settings` -> `Owner` tab.
 
 ## Keybinds
 
