@@ -24,15 +24,10 @@ Note: This guide assumes you're using modules hosted by Pogly. Some steps may va
 
 At the moment, Pogly is <b>free to use</b> and you can create as many modules as you want. While in theory you could use one module for multiple streamers, it's recommended to have one module per streamer for performance reasons.
 
-To create a module, join [Pogly Discord](https://discord.gg/pogly). In any public channel, run the `/publish` <b>slash command</b>. Give your module a name. This name is used to connect to your module.
+To create a module, simply click on the "create module for free" button in the https://cloud.pogly.gg/ portal. Then, enter a name and click "create". If you have access to any modules, below the create button you will see the modules you can connect to.
 
-![module creation](../assets/module_creation.png)
-
-## Connecting to your module
-
-Once you've successfully created your module, in your browser of choice open https://cloud.pogly.gg. You'll be prompted to authenticate using `SpacetimeAuth` which is our [OIDC provider](https://openid.net/developers/how-connect-works/). If you'd like to know more about how we utilize `SpacetimeAuth` and what information we get from you, you can read our [authentication documentation](./authentication.md). Once authenticated, input the name of the module you just created into `module name` input field and press `connect`.
-
-![login screen](../assets/login_screen.png)
+<img width="714" height="381" alt="image" src="https://github.com/user-attachments/assets/de022b20-8dcc-429f-8642-0dbbe93e3862" />
+<img width="689" height="349" alt="image" src="https://github.com/user-attachments/assets/38427a58-cb98-477e-911e-f78b4c593191" />
 
 ## Module onboarding
 
