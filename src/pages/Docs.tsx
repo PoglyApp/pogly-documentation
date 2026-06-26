@@ -32,9 +32,15 @@ const SECTIONS: { id: string; title: string; content: string }[] = [
 ];
 
 const SAVED_THEME_KEY = "pogly-docs-theme";
+const VALID_IDS = new Set(ALL_SECTIONS.map((s) => s.id));
+
+function getInitialSection(): string {
+  const hash = window.location.hash.slice(1);
+  return VALID_IDS.has(hash) ? hash : "getting-started";
+}
 
 export const Docs = () => {
-  const [activeSection, setActiveSection] = useState("getting-started");
+  const [activeSection, setActiveSection] = useState(getInitialSection);
   const [theme, setTheme] = useState<Theme>(() => {
     return (localStorage.getItem(SAVED_THEME_KEY) as Theme) ?? "dark";
   });
@@ -43,6 +49,21 @@ export const Docs = () => {
     applyTheme(theme);
     localStorage.setItem(SAVED_THEME_KEY, theme);
   }, [theme]);
+
+  // Keep the hash in sync with the active section.
+  useEffect(() => {
+    window.location.hash = activeSection;
+  }, [activeSection]);
+
+  // Handle browser back/forward navigation.
+  useEffect(() => {
+    const onHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (VALID_IDS.has(hash)) setActiveSection(hash);
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
 
   const currentIndex = ALL_SECTIONS.findIndex((s) => s.id === activeSection);
   const section = SECTIONS[currentIndex];
