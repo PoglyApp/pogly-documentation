@@ -214,6 +214,17 @@
   background: #3a4157;
 }
 
+@keyframes highlight-flash {
+  0%   { color: var(--color-accent); }
+  60%  { color: var(--color-accent); }
+  100% { color: inherit; }
+}
+
+.highlight-flash {
+  animation: highlight-flash 1s ease-out forwards;
+  background: transparent;
+}
+
 html,
 body {
   margin: 0;

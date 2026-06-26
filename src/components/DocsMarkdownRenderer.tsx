@@ -4,6 +4,40 @@ import remarkGfm from "remark-gfm";
 import { Info, Lightbulb, TriangleAlert, Copy, Check } from "lucide-react";
 import type { Components } from "react-markdown";
 
+// Recursively walk React children and wrap matched strings in <mark> elements.
+// flashKey changes on every search navigate, forcing React to remount marks and replay the animation.
+function applyHighlight(node: React.ReactNode, query: string, flashKey: number): React.ReactNode {
+  if (!query) return node;
+
+  if (typeof node === "string") {
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const parts = node.split(new RegExp(`(${escaped})`, "gi"));
+    if (parts.length === 1) return node;
+    return parts.map((part, i) =>
+      part.toLowerCase() === query.toLowerCase() ? (
+        <mark key={`${flashKey}-${i}`} className="highlight-flash text-inherit rounded-sm px-0.5">
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
+  }
+
+  if (Array.isArray(node)) {
+    return node.map((child, i) => (
+      <React.Fragment key={i}>{applyHighlight(child, query, flashKey)}</React.Fragment>
+    ));
+  }
+
+  if (React.isValidElement(node)) {
+    const el = node as React.ReactElement<{ children?: React.ReactNode }>;
+    return React.cloneElement(el, {}, applyHighlight(el.props.children, query, flashKey));
+  }
+
+  return node;
+}
+
 // Detect GitHub-style alerts in blockquotes: > [!NOTE], > [!TIP], > [!WARNING]
 // Optionally followed by a custom title on the same line: > [!WARNING] Advanced
 const ALERT_RE = /^\[!(NOTE|TIP|WARNING)\](?:\s+(.+))?$/i;
@@ -231,10 +265,29 @@ const components: Components = {
 
 interface IProps {
   content: string;
+  highlight?: string;
+  flashKey?: number;
 }
 
-export const DocsMarkdownRenderer = ({ content }: IProps) => (
-  <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
-    {content}
-  </ReactMarkdown>
-);
+export const DocsMarkdownRenderer = ({ content, highlight, flashKey = 0 }: IProps) => {
+  const q = highlight?.trim() ?? "";
+
+  const highlightedComponents: Components = {
+    ...components,
+    p: ({ children }) => (
+      <p className="text-sm text-text-secondary leading-relaxed mb-3">
+        {applyHighlight(children, q, flashKey)}
+      </p>
+    ),
+    li: ({ children }) => <li>{applyHighlight(children, q, flashKey)}</li>,
+    td: ({ children }) => (
+      <td className="py-2 px-3 text-text-secondary">{applyHighlight(children, q, flashKey)}</td>
+    ),
+  };
+
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={q ? highlightedComponents : components}>
+      {content}
+    </ReactMarkdown>
+  );
+};

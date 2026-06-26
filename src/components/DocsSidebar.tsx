@@ -31,7 +31,7 @@ export const NAV_GROUPS: NavGroup[] = [
 
 interface IProps {
   activeSection: string;
-  onSectionChange: (id: string) => void;
+  onSectionChange: (id: string, query?: string) => void;
 }
 
 export const DocsSidebar = ({ activeSection, onSectionChange }: IProps) => {

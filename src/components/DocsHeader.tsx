@@ -1,11 +1,14 @@
 import { Theme, LIGHT_BG_THEMES, THEME_LABELS } from "../theme";
+import { SearchBar } from "./SearchBar";
 
 interface IProps {
   theme: Theme;
   onThemeChange: (t: Theme) => void;
+  sections: { id: string; title: string; content: string }[];
+  onSearchNavigate: (id: string, query: string) => void;
 }
 
-export const DocsHeader = ({ theme, onThemeChange }: IProps) => {
+export const DocsHeader = ({ theme, onThemeChange, sections, onSearchNavigate }: IProps) => {
   const logoSrc = LIGHT_BG_THEMES.has(theme) ? "/assets/logo_light.svg" : "/assets/logo.svg";
 
   return (
@@ -16,6 +19,8 @@ export const DocsHeader = ({ theme, onThemeChange }: IProps) => {
         <span className="text-text-muted text-sm">/</span>
         <span className="text-text-muted text-sm">docs</span>
       </div>
+
+      <SearchBar sections={sections} onNavigate={onSearchNavigate} />
 
       <div className="flex items-center gap-3">
         <select

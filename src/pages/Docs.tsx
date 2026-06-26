@@ -41,6 +41,8 @@ function getInitialSection(): string {
 
 export const Docs = () => {
   const [activeSection, setActiveSection] = useState(getInitialSection);
+  const [highlightQuery, setHighlightQuery] = useState("");
+  const [flashKey, setFlashKey] = useState(0);
   const [theme, setTheme] = useState<Theme>(() => {
     return (localStorage.getItem(SAVED_THEME_KEY) as Theme) ?? "dark";
   });
@@ -68,13 +70,18 @@ export const Docs = () => {
   const currentIndex = ALL_SECTIONS.findIndex((s) => s.id === activeSection);
   const section = SECTIONS[currentIndex];
 
-  const navigate = (id: string) => {
+  const navigate = (id: string, query = "") => {
     setActiveSection(id);
+    setHighlightQuery(query);
+    if (query) {
+      setFlashKey((k) => k + 1);
+      setTimeout(() => setHighlightQuery(""), 1000);
+    }
   };
 
   return (
     <div className="flex flex-col h-screen w-screen bg-body overflow-hidden">
-      <DocsHeader theme={theme} onThemeChange={setTheme} />
+      <DocsHeader theme={theme} onThemeChange={setTheme} sections={SECTIONS} onSearchNavigate={navigate} />
 
       <div className="flex flex-1 overflow-hidden">
         <DocsSidebar activeSection={activeSection} onSectionChange={navigate} />
@@ -88,7 +95,7 @@ export const Docs = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-2xl font-semibold text-text-primary mb-2">{section.title}</h2>
             <div className="h-px bg-border mb-8" />
-            <DocsMarkdownRenderer content={section.content} />
+            <DocsMarkdownRenderer content={section.content} highlight={highlightQuery} flashKey={flashKey} />
 
             <div className="flex justify-between mt-16 pt-8 border-t border-border">
               {currentIndex > 0 && (
