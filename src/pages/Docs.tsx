@@ -13,6 +13,7 @@ import canvasEditingMd from "../docs/canvas-editing.md?raw";
 import settingsMd from "../docs/settings.md?raw";
 import assetsMd from "../docs/assets.md?raw";
 import widgetDevelopmentMd from "../docs/widget-development.md?raw";
+import httpApiMd from "../docs/http-api.md?raw";
 import glossaryMd from "../docs/glossary.md?raw";
 
 const ALL_SECTIONS = NAV_GROUPS.flatMap((g) => g.items);
@@ -28,6 +29,7 @@ const SECTIONS: { id: string; title: string; content: string }[] = [
   { id: "settings",           title: "Settings",           content: settingsMd },
   { id: "assets",             title: "Assets",             content: assetsMd },
   { id: "widget-development", title: "Widget Development", content: widgetDevelopmentMd },
+  { id: "http-api",           title: "HTTP API",           content: httpApiMd },
   { id: "glossary",           title: "Glossary",           content: glossaryMd },
 ];
 

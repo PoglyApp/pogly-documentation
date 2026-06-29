@@ -24,6 +24,7 @@ export const NAV_GROUPS: NavGroup[] = [
     label: "advanced",
     items: [
       { id: "widget-development", label: "Widget Development" },
+      { id: "http-api", label: "HTTP API" },
       { id: "glossary", label: "Glossary" },
     ],
   },

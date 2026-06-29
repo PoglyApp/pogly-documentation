@@ -1,4 +1,4 @@
-export type Theme = "dark" | "light" | "paper" | "nord" | "mocha" | "solarized" | "matcha";
+export type Theme = "dark" | "light" | "paper" | "nord" | "mocha" | "solarized" | "matcha" | "alypink";
 
 export const THEME_LABELS: Record<Theme, string> = {
   dark: "Dark",
@@ -8,10 +8,11 @@ export const THEME_LABELS: Record<Theme, string> = {
   mocha: "Mocha",
   solarized: "Solarized",
   matcha: "Matcha",
+  alypink: "Alypink",
 };
 
 // Themes that use a light background — determines which logo variant to show.
-export const LIGHT_BG_THEMES = new Set<Theme>(["light", "paper", "matcha"]);
+export const LIGHT_BG_THEMES = new Set<Theme>(["light", "paper", "matcha", "alypink"]);
 
 export function applyTheme(theme: Theme) {
   const body = document.body;
