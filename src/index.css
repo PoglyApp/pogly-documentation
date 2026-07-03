@@ -17,10 +17,6 @@
 @import "tailwindcss";
 @config "../tailwind.config.js";
 
-/* ============================================================
-   Theme CSS Variables
-   ============================================================ */
-
 :root {
   --color-base: #090b12;
   --color-body: #10121a;
@@ -215,9 +211,15 @@
 }
 
 @keyframes highlight-flash {
-  0%   { color: var(--color-accent); }
-  60%  { color: var(--color-accent); }
-  100% { color: inherit; }
+  0% {
+    color: var(--color-accent);
+  }
+  60% {
+    color: var(--color-accent);
+  }
+  100% {
+    color: inherit;
+  }
 }
 
 .highlight-flash {

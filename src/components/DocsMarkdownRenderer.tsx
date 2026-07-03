@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Info, Lightbulb, TriangleAlert, Copy, Check } from "lucide-react";
+import { Info, Lightbulb, TriangleAlert } from "lucide-react";
 import type { Components } from "react-markdown";
+import { slugify } from "../toc";
+import { CopyButton } from "./CopyButton";
+import { ApiExample } from "./ApiExample";
 
-// Recursively walk React children and wrap matched strings in <mark> elements.
-// flashKey changes on every search navigate, forcing React to remount marks and replay the animation.
 function applyHighlight(node: React.ReactNode, query: string, flashKey: number): React.ReactNode {
   if (!query) return node;
 
@@ -20,14 +21,12 @@ function applyHighlight(node: React.ReactNode, query: string, flashKey: number):
         </mark>
       ) : (
         part
-      )
+      ),
     );
   }
 
   if (Array.isArray(node)) {
-    return node.map((child, i) => (
-      <React.Fragment key={i}>{applyHighlight(child, query, flashKey)}</React.Fragment>
-    ));
+    return node.map((child, i) => <React.Fragment key={i}>{applyHighlight(child, query, flashKey)}</React.Fragment>);
   }
 
   if (React.isValidElement(node)) {
@@ -38,13 +37,14 @@ function applyHighlight(node: React.ReactNode, query: string, flashKey: number):
   return node;
 }
 
-// Detect GitHub-style alerts in blockquotes: > [!NOTE], > [!TIP], > [!WARNING]
-// Optionally followed by a custom title on the same line: > [!WARNING] Advanced
 const ALERT_RE = /^\[!(NOTE|TIP|WARNING)\](?:\s+(.+))?$/i;
 
 type AlertType = "NOTE" | "TIP" | "WARNING";
 
-const ALERT_CONFIG: Record<AlertType, { icon: typeof Info; iconColor: string; borderColor: string; bg: string; defaultTitle: string }> = {
+const ALERT_CONFIG: Record<
+  AlertType,
+  { icon: typeof Info; iconColor: string; borderColor: string; bg: string; defaultTitle: string }
+> = {
   NOTE: {
     icon: Info,
     iconColor: "var(--color-accent)",
@@ -68,26 +68,6 @@ const ALERT_CONFIG: Record<AlertType, { icon: typeof Info; iconColor: string; bo
   },
 };
 
-const CopyButton = ({ code }: { code: string }) => {
-  const [copied, setCopied] = useState(false);
-  const copy = () => {
-    navigator.clipboard.writeText(code).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-  return (
-    <button
-      onClick={copy}
-      className="text-text-muted hover:text-text-secondary transition-colors cursor-pointer"
-      title="Copy to clipboard"
-    >
-      {copied ? <Check size={14} /> : <Copy size={14} />}
-    </button>
-  );
-};
-
-// Extract plain text from react-markdown child nodes for the blockquote alert parser.
 function childrenToText(children: React.ReactNode): string {
   if (typeof children === "string") return children;
   if (Array.isArray(children)) return children.map(childrenToText).join("");
@@ -98,21 +78,20 @@ function childrenToText(children: React.ReactNode): string {
 }
 
 const components: Components = {
-  // Section heading — h2 is stripped from content so we skip it;
-  // it exists only to delineate sections and is rendered by Docs.tsx.
   h2: () => null,
 
   h3: ({ children }) => (
-    <h3 className="text-base font-semibold text-text-primary mt-8 mb-3">{children}</h3>
+    <h3
+      id={slugify(childrenToText(children))}
+      className="scroll-mt-6 text-base font-semibold text-text-primary mt-8 mb-3"
+    >
+      {children}
+    </h3>
   ),
 
-  h4: ({ children }) => (
-    <h4 className="text-sm font-semibold text-text-primary mt-5 mb-2">{children}</h4>
-  ),
+  h4: ({ children }) => <h4 className="text-sm font-semibold text-text-primary mt-5 mb-2">{children}</h4>,
 
-  p: ({ children }) => (
-    <p className="text-sm text-text-secondary leading-relaxed mb-3">{children}</p>
-  ),
+  p: ({ children }) => <p className="text-sm text-text-secondary leading-relaxed mb-3">{children}</p>,
 
   ul: ({ children }) => (
     <ul className="list-disc list-outside ml-5 space-y-1.5 text-sm text-text-secondary mb-4">{children}</ul>
@@ -127,19 +106,12 @@ const components: Components = {
   strong: ({ children }) => <span className="text-text-primary font-medium">{children}</span>,
 
   a: ({ href, children }) => (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="text-accent underline underline-offset-2"
-    >
+    <a href={href} target="_blank" rel="noreferrer" className="text-accent underline underline-offset-2">
       {children}
     </a>
   ),
 
-  // Inline code
   code: ({ children, className }) => {
-    // Fenced code blocks are handled by `pre` below; this handles inline code only.
     if (className) return <code className={className}>{children}</code>;
     return (
       <code
@@ -151,12 +123,13 @@ const components: Components = {
     );
   },
 
-  // Fenced code blocks
   pre: ({ children }) => {
     const child = children as React.ReactElement;
     const code = childrenToText(child?.props?.children ?? "");
     const langClass: string = child?.props?.className ?? "";
     const lang = langClass.replace("language-", "") || undefined;
+
+    if (lang === "api-example") return <ApiExample source={code} />;
 
     return (
       <div className="relative my-4 rounded-lg bg-surface border border-border overflow-hidden">
@@ -185,10 +158,6 @@ const components: Components = {
     );
   },
 
-  // Blockquotes become callout boxes when they start with [!NOTE], [!TIP], or [!WARNING].
-  // We use the raw hast `node` (pre-render AST) for detection because it holds unambiguous
-  // plain text. The rendered React `children` are used for the body so inline formatting
-  // (bold, code, links) is preserved. The first rendered child (<p>[!TYPE]</p>) is skipped.
   blockquote: (props) => {
     const { children } = props;
     const hastNode = (props as any).node as any;
@@ -200,9 +169,7 @@ const components: Components = {
       return "";
     };
 
-    const firstParaNode = hastNode?.children?.find(
-      (c: any) => c.type === "element" && c.tagName === "p"
-    );
+    const firstParaNode = hastNode?.children?.find((c: any) => c.type === "element" && c.tagName === "p");
     const firstParaText = hastText(firstParaNode).trim();
     const match = firstParaText.match(ALERT_RE);
 
@@ -212,7 +179,7 @@ const components: Components = {
       const cfg = ALERT_CONFIG[type];
       const Icon = cfg.icon;
       const bodyChildren = React.Children.toArray(children).filter(
-        (child) => !ALERT_RE.test(childrenToText(child).trim())
+        (child) => !ALERT_RE.test(childrenToText(child).trim()),
       );
 
       return (
@@ -222,9 +189,7 @@ const components: Components = {
         >
           <Icon size={16} style={{ color: cfg.iconColor }} className="mt-0.5 shrink-0" />
           <div className="flex-1">
-            <p className="text-sm font-semibold text-text-primary mb-1">
-              {customTitle ?? cfg.defaultTitle}
-            </p>
+            <p className="text-sm font-semibold text-text-primary mb-1">{customTitle ?? cfg.defaultTitle}</p>
             <div className="text-sm text-text-secondary leading-relaxed">{bodyChildren}</div>
           </div>
         </div>
@@ -238,17 +203,13 @@ const components: Components = {
     );
   },
 
-  table: ({ children }) => (
-    <table className="w-full text-sm border-collapse mt-2 mb-6">{children}</table>
-  ),
+  table: ({ children }) => <table className="w-full text-sm border-collapse mt-2 mb-6">{children}</table>,
 
   thead: ({ children }) => <thead>{children}</thead>,
 
   tbody: ({ children }) => <tbody>{children}</tbody>,
 
-  tr: ({ children }) => (
-    <tr className="border-b border-border-subtle last:border-0">{children}</tr>
-  ),
+  tr: ({ children }) => <tr className="border-b border-border-subtle last:border-0">{children}</tr>,
 
   th: ({ children }) => (
     <th className="text-left py-2 px-3 text-text-muted text-xs font-semibold uppercase tracking-wide border-b border-border">
@@ -256,9 +217,7 @@ const components: Components = {
     </th>
   ),
 
-  td: ({ children }) => (
-    <td className="py-2 px-3 text-text-secondary">{children}</td>
-  ),
+  td: ({ children }) => <td className="py-2 px-3 text-text-secondary">{children}</td>,
 
   hr: () => <div className="h-px bg-border my-8" />,
 };
@@ -275,14 +234,10 @@ export const DocsMarkdownRenderer = ({ content, highlight, flashKey = 0 }: IProp
   const highlightedComponents: Components = {
     ...components,
     p: ({ children }) => (
-      <p className="text-sm text-text-secondary leading-relaxed mb-3">
-        {applyHighlight(children, q, flashKey)}
-      </p>
+      <p className="text-sm text-text-secondary leading-relaxed mb-3">{applyHighlight(children, q, flashKey)}</p>
     ),
     li: ({ children }) => <li>{applyHighlight(children, q, flashKey)}</li>,
-    td: ({ children }) => (
-      <td className="py-2 px-3 text-text-secondary">{applyHighlight(children, q, flashKey)}</td>
-    ),
+    td: ({ children }) => <td className="py-2 px-3 text-text-secondary">{applyHighlight(children, q, flashKey)}</td>,
   };
 
   return (

@@ -7,7 +7,6 @@ interface IProps {
   onNavigate: (id: string, query: string) => void;
 }
 
-// Highlight the query match inside a snippet string for the results dropdown.
 function SnippetWithHighlight({ text, query }: { text: string; query: string }) {
   if (!query) return <>{text}</>;
   const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"));
@@ -20,7 +19,7 @@ function SnippetWithHighlight({ text, query }: { text: string; query: string }) 
           </mark>
         ) : (
           part
-        )
+        ),
       )}
     </>
   );
@@ -57,7 +56,7 @@ export const SearchBar = ({ sections, onNavigate }: IProps) => {
       setQuery("");
       inputRef.current?.blur();
     },
-    [onNavigate, query]
+    [onNavigate, query],
   );
 
   const onKeyDown = (e: React.KeyboardEvent) => {
@@ -91,7 +90,13 @@ export const SearchBar = ({ sections, onNavigate }: IProps) => {
           className="flex-1 bg-transparent text-sm text-text-primary placeholder:text-text-muted outline-none select-text!"
         />
         {query && (
-          <button onClick={() => { setQuery(""); setOpen(false); }} className="text-text-muted hover:text-text-secondary cursor-pointer">
+          <button
+            onClick={() => {
+              setQuery("");
+              setOpen(false);
+            }}
+            className="text-text-muted hover:text-text-secondary cursor-pointer"
+          >
             <X size={13} />
           </button>
         )}

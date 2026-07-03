@@ -80,9 +80,21 @@ Variables let non-technical editors customize a widget without touching its code
 |---|---|---|
 | String / Number | 1 | Text input - accepts any text or number |
 | Boolean | 2 | Checkbox - true or false |
-| Toggle | 3 | Button that fires once per click - use in JS to trigger an action |
+| Toggle | 3 | Button that fires once per click - use in JS to trigger an action (forces a full recompile) |
 | Color | 4 | Color picker - returns a hex value like #ff0000 |
 | Image | 5 | Image selector - returns a URL to the chosen image |
+| Button | 6 | A momentary trigger button - delivers a fixed value to your widget each time it's pressed. Always live. |
+| Slider | 7 | A range slider with configurable min, max, and step - returns the numeric value as a string |
+| Dropdown | 8 | A select menu - pick one of a predefined list of options |
+| Date/Time | 9 | A date-and-time picker. You choose the **output format** your code receives (see below). |
+
+> [!TIP]
+>
+> Drag the grip handle at the top of a variable card in the **variables** tab to reorder your variables.
+
+**Button variables** are always live and have no editable value - just a fixed value you configure and a button that fires it. Every press delivers that value to your running widget via `onLiveVariableUpdate` (see Live Variables), even if you press it repeatedly.
+
+**Date/Time output format:** a datetime variable stores a standard date-time string, but you choose what your widget code actually receives - raw (`2026-06-27T14:30`), ISO 8601 (UTC), Unix seconds, Unix milliseconds, date only, time only, or a locale string. Pick the format from the variable's card in the variables tab.
 
 Variable substitution works in any code tab - html, css, js, or header:
 
@@ -141,8 +153,8 @@ Widgets are stored as JSON. Use the **export** tab to copy your widget as a JSON
   "styleTag": "body { margin: 0; background: transparent; } #count { font-size: 64px; color: {textColor}; }",
   "scriptTag": "let n = {startCount}; setInterval(() => document.getElementById('count').textContent = n++, 1000);",
   "variables": [
-    { "name": "textColor", "type": 4, "value": "#ffffff" },
-    { "name": "startCount", "type": 1, "value": "0" }
+    { "variableName": "textColor", "variableType": 4, "variableValue": "#ffffff" },
+    { "variableName": "startCount", "variableType": 1, "variableValue": "0" }
   ]
 }
 ```
@@ -153,7 +165,7 @@ Because widgets are deterministic by default, changing a variable value causes t
 
 **Live variables** skip the recompile: the new value is sent directly into the running widget via `postMessage`, keeping everything else running uninterrupted.
 
-To mark a variable as live, check the **Live** checkbox next to it in the **variables** tab. Toggle variables cannot be live - they always trigger a full recompile.
+To mark a variable as live, check the **Live** checkbox next to it in the **variables** tab. Toggle and image variables cannot be live - toggles always trigger a full recompile, and image data is too large to send live. Button variables are always live.
 
 ```javascript
 // Define this function in your js tab to receive live updates
@@ -167,6 +179,10 @@ function onLiveVariableUpdate(name, value) {
 ```
 
 Live variables that are marked also appear in the **Details panel** on the right side of the canvas editor, so editors can tweak values on the fly without opening the widget IDE at all.
+
+> [!NOTE]
+>
+> The Details panel is the place where live changes reach a placed widget instantly. Changing a live value in the IDE's **controls** tab only affects the live preview - the placed element updates when you hit Save. (Button variables are the exception: they fire into the preview immediately.)
 
 > [!TIP]
 >

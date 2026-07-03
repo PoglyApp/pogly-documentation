@@ -32,9 +32,40 @@ The editor canvas is your workspace. Here's everything you need to know about na
 - **Flip:** In the context menu, you can flip an element. Horizontal or vertical.
 - **Reset:** In the details menu, you can reset an element. You can reset size, rotation, crop, warp, or all transforms at once independently.
 
+### Aligning Elements
+
+The Details panel has an **align** button that opens a small 9-point alignment grid. Click an anchor to snap the selected element to that spot - corners, edge centers, or dead center. Each anchor positions the element on both axes at once (for example, "left" means flush left *and* vertically centered).
+
+Next to the grid is a **relative to** selector:
+
+- **stream preview** - align within the 1920×1080 stream frame (the usual choice)
+- **viewport** - align within your current browser window view of the canvas
+
 ### Working with Multiple Elements
 
 When multiple elements are selected, move, resize, and rotate operations apply to all of them simultaneously. This makes it easy to reposition a group of elements while keeping their relative spacing intact.
+
+### Layer Order & Z-Order Lock
+
+Selecting or moving an element normally brings it to the front automatically. For elements that must stay behind others - a background frame, for example - enable **z-order lock** from the toolbar that appears next to a selected element. A z-order-locked element can be selected, moved, and resized without its stacking position changing. Dragging elements into a new order in the Elements panel still works and applies to locked elements too.
+
+### Always Loaded
+
+Elements far outside the stream frame are not sent to the live overlay at all (see The Preload Area below). The **Always Loaded** toggle - the power icon in the Details panel - opts an element out of this, keeping it loaded and running on the overlay no matter where it sits. Use it for off-screen background music or widgets that need to keep running (timers, sound alerts).
+
+> [!WARNING]
+>
+> An Always Loaded element is sent to the overlay even while off-screen, so don't use it on elements with content you keep off-frame for privacy.
+
+### The Preload Area
+
+The dotted box around the stream frame in the editor is the **element preload area**. The live overlay only receives elements inside this area - the stream frame plus a margin on every side:
+
+- Elements inside the margin are loaded by the overlay before they enter the frame, so they appear instantly when slid on-screen
+- Elements parked far off-screen (notes, spares, works in progress) are never sent to the overlay and stay private to editors
+- New elements intentionally spawn just below the preload area, so nothing appears on stream before you've placed it
+
+You can adjust the preload area's visibility with the **preload area opacity** slider in Settings → Canvas.
 
 ### Element Search / Spotlight
 
@@ -58,7 +89,12 @@ When a widget element is selected and it has **live variables** defined, those v
 - String / number variables appear as text inputs - press Enter to apply
 - Boolean variables appear as a checkbox - updates immediately on toggle
 - Color variables appear as a color swatch and hex input
-- Image and toggle variables must be edited inside the widget IDE
+- Slider variables appear as a draggable range slider
+- Dropdown variables appear as a select menu
+- Date/time variables appear as a date-time input
+- Button variables appear as a clickable button that fires its action in the widget
+- Toggle variables appear in their own toggles section above the live variables
+- Image variables must be edited inside the widget IDE
 
 ### Undo & Redo
 
@@ -70,27 +106,4 @@ When hiding or showing elements (setting opacity to 0% or 100%), you can enable 
 
 ### Keyboard Shortcuts
 
-| Key | Action |
-|---|---|
-| Delete | Deletes the currently selected element(s) |
-| CTRL+X | Deletes the currently selected element, but saves it to your clipboard |
-| CTRL+C | Copies the currently selected element to your clipboard |
-| CTRL+V | Pastes from your clipboard, if it's an image URL, it automatically parses out the image. If it's an element, it pastes the element. If it's text, it pastes the text. |
-| CTRL+D | Duplicates the currently selected element |
-| Home | Centers the camera on the stream preview |
-| CTRL+Space/K | Opens the element spotlight search modal |
-| WASD | Moves the camera around the canvas |
-| SHIFT + Resize | Keep aspect ratio during element scaling |
-| SHIFT+W | Sets the selected element to "Warp" mode |
-| SHIFT+C | Sets the selected element to "Crop" mode |
-| SHIFT+S | Sets the selected element to "Scale" mode |
-| Page Up | Sets transparency to 100 on the currently selected element(s) |
-| Page Down | Sets transparency to 0 on the currently selected element(s) |
-| SHIFT+F | Vertically flips the currently selected element |
-| CTRL+F | Horizontally flips the currently selected element |
-| Arrow Keys | Nudge currently selected element in that direction *Can only move in 1 direction at a time |
-| Shift + Arrow Keys | Big nudge currently selected element in that direction *Can only move in 1 direction at a time |
-
-> [!TIP]
->
-> Every keyboard shortcut can be customized in Settings → General → Keybinds. Click any shortcut to record a new key combination.
+Pogly has shortcuts for nearly everything - undo/redo, copy/paste, transforms, nudging, panning, and Spotlight - and they're all customizable. See the **Keyboard Shortcuts** section for the full reference and how to remap them.

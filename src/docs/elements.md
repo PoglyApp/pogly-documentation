@@ -18,16 +18,13 @@ Upload and display any image on your overlay.
 
 - Upload images from your computer (with a PoglyCDN subscription), or paste a direct image URL
 - Search and use emotes from Twitch, 7TV, BetterTTV, and FrankerFaceZ
-- Search for animated GIFs via Klipy
+- Search for animated GIFs via KLIPY
 
 ### Media Player Elements
 
-Embed a video or audio player directly on your overlay. Provide a direct-URL and Pogly automatically detects the media type and renders the appropriate player.
+Embed a video or audio player directly on your overlay. Provide a URL and Pogly automatically detects the media type and renders the appropriate player - YouTube, Twitch, Vimeo, TikTok, Spotify, and Wistia embeds, plus direct video/audio file URLs and HLS/DASH streams.
 
-- **YouTube:** Paste any standard YouTube URL - the video embeds automatically using the YouTube player
-- **Video files:** MP4, WebM, and other browser-supported formats via direct URL
-- **Audio files:** MP3, WAV, OGG, FLAC, AAC, M4A, and Opus via direct URL
-- Resize, rotate, and layer the player just like any other element
+Playback is synchronized in real time between all editors and the live overlay. See the **Media Players** section for the full guide: supported sources, default settings, playback sync, and audio display.
 
 ### Widget Elements
 
@@ -48,6 +45,8 @@ Every element - regardless of type - has these properties, shown in the Details 
 | Rotation | Angle in degrees - drag the handle above the selection or type a number |
 | Opacity | How visible the element is - 100% is fully visible, 0% is completely invisible |
 | Lock | Prevents the element from being accidentally moved or edited by anyone |
+| Always Loaded | Keeps the element loaded on the live overlay even when it sits outside the visible frame - useful for off-screen music or timer widgets. Toggled with the power icon in the Details panel. |
+| Z-Order Lock | Stops the element from automatically jumping to the front when someone selects or moves it. Reordering it by hand in the Elements panel still works. |
 
 ### Selecting and Editing
 
@@ -55,3 +54,12 @@ Every element - regardless of type - has these properties, shown in the Details 
 - Double-click a text element to open the text editor
 - Drag the corner handles to resize; hold Shift to keep the original proportions
 - Click empty canvas space to deselect everything
+
+### Pasting Onto the Canvas
+
+Ctrl+V is the fastest way to get things onto the canvas. Depending on what's in your clipboard, Pogly creates the right element automatically:
+
+1. **A copied Pogly element** - pastes as a duplicate of that element
+2. **An image URL (or image data)** - becomes an Image element
+3. **A playable media URL** (YouTube link, mp3 file, etc.) - becomes a Media Player element using your media default settings
+4. **Plain text** - becomes a Text element

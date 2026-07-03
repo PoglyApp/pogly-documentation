@@ -23,11 +23,24 @@ Search and use emotes from four major platforms directly in the image picker:
 - **BetterTTV (BTTV)** - channel and global BTTV emotes
 - **FrankerFaceZ (FFZ)** - channel and global FFZ emotes
 
-Enable or disable each provider in **Settings → Channel Emotes**. You can toggle between channel-specific emotes and global emotes from each provider independently. Use a custom 7TV username if your stream name differs from your 7TV profile.
+Enable or disable each provider in **Settings → GIFs & Emotes**. You can toggle between channel-specific emotes and global emotes from each provider independently. Use a custom 7TV username if your stream name differs from your 7TV profile.
 
 > [!TIP]
 >
 > You can also search emotes from the Spotlight (Ctrl+K/Ctrl+Space) without opening the full image picker. Just type an emote name and click to add it instantly.
+
+### GIFs
+
+Click the **GIFs** button in the bottom bar to search for animated GIFs, powered by KLIPY.
+
+- Leave the search box empty to browse the current trending GIFs, or type to search
+- Click any GIF to place it on the canvas as an image element
+- Adult content is filtered out, so some searches may return few or no results
+- Choose how many GIFs appear per row with the **GIFs per row** setting in **Settings → GIFs & Emotes**
+
+> [!NOTE]
+>
+> Search results may occasionally include a sponsored GIF, marked with an "Ad" badge. Clicking it opens the advertiser's link instead of placing it on your canvas.
 
 ### Folders
 

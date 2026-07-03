@@ -28,4 +28,4 @@ By default, the Browser Source overlay URL always shows whichever layout is curr
 
 If you would like to force a specific Pogly Layout, you can, by adding a `?layout=layoutName` to the end of your overlay URL, replacing `layoutName` with the name of your specific Layout. 
 
-This is useful if you would like to create multiple Pogly Browser Sources which are locked to specific layouts. 
+This is useful if you would like to create multiple Pogly Browser Sources which are locked to specific layouts. The `?layout=` parameter works alongside your overlay's `?module=` code regardless of whether it's an identity-based or name-based URL.

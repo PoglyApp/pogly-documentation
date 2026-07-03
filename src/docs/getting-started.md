@@ -28,6 +28,10 @@ Setup is simple, and can be done in under 60 seconds.
 >
 > If your stream resolution is larger than `1920x1080`, simply right click the browser source -> transform -> stretch to screen.
 
+> [!NOTE]
+>
+> Your overlay URL contains a `?module=` code that identifies your overlay. Newer overlays use a long identity code; older ones use a name - both work, and renaming your overlay never changes the URL. The overlay background is transparent by default; add `&transparent=0` to the URL if you want a solid background instead.
+
 ### Interface
 
 First impressions are important! Your first time connecting to Pogly might be a bit overwhelming, but it's fairly intuitive once you're familiar with the interface. 

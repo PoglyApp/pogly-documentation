@@ -19,3 +19,12 @@ Plain-language definitions for terms you'll encounter in Pogly and throughout th
 | CDN | Content Delivery Network - a global system for serving files quickly from servers close to the viewer. An optional feature for Pogly image hosting. |
 | Spotlight | The Pogly command palette. Press Ctrl+K (Cmd+K on Mac) to open it and quickly search for images, emotes, or widgets to add to the canvas. |
 | Interpolation | A smoothing technique that makes remote cursor positions and element movements appear fluid rather than jumping. Enabled in Settings → General. |
+| Media Element | An element that plays video, audio, or a stream embed on your overlay (YouTube, Spotify, mp4/mp3 files, and more). |
+| Module Identity | The unique code that identifies your overlay - the `?module=` value in your overlay URL. Newer overlays use an identity code instead of a name. |
+| Handle | Your social identifier, written as `nickname#platform` (e.g. `pogly#Twitch`). Others use it to add you as a friend. |
+| Instance Chat | The real-time chat shared by everyone connected to the same overlay. |
+| Preload Area | The zone around the stream frame (shown as a dotted box in the editor) within which elements are loaded by the live overlay. Elements far outside it aren't sent to the overlay. |
+| Always Loaded | A per-element option that keeps an element loaded on the overlay even when it's off-screen - used for off-screen audio or timer widgets. |
+| Z-Order Lock | A per-element option that stops the element from auto-jumping to the front when selected or moved. |
+| API Token | A secret key (`pgly_...`) that lets external tools control your overlay over the HTTP API, acting with its creator's permissions. |
+| KLIPY | The GIF search provider that powers Pogly's GIF tab. |
