@@ -185,6 +185,30 @@
   --shadow-panel: 0 18px 60px rgba(46, 61, 23, 0.2);
 }
 
+.theme-alypink {
+  --color-base: #f6c2da;
+  --color-body: #fcd9e8;
+  --color-surface: #fff0f7;
+
+  --color-text-primary: #5a2238;
+  --color-text-secondary: #6e2a47;
+  --color-text-muted: #b06a8a;
+
+  --color-accent: #ff6fae;
+  --color-accent-hover: #ff6fae33;
+  --color-accent-border: #ff6fae;
+
+  --color-border: #f4b8d0;
+  --color-border-subtle: #f8cade;
+
+  --color-surface-hover: #fde3f0;
+  --color-selected-bg: #ffd1ea;
+
+  --color-warning: #e8930c;
+
+  --shadow-panel: 0 18px 60px rgba(200, 60, 120, 0.2);
+}
+
 * {
   scrollbar-width: thin;
   scrollbar-color: #3f465b #14151b;

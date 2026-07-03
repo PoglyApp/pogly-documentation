@@ -6,13 +6,32 @@ They're available across all layouts and can be reused by any editor.
 
 ### Uploading Images
 
-Click the **Images** button in the bottom bar to open the image picker. From here you can:
+There are two ways to get an image into Pogly, and which one you use depends on whether you have a PoglyCDN subscription:
 
-- Drag and drop an image file from your computer (with a PoglyCDN subscription)
-- Paste an image directly from your clipboard (with a PoglyCDN subscription)
-- Enter a direct image URL (JPEG, PNG, GIF, WebP, and more)
+- **By URL (free, default)** - you host the image somewhere else (an "intermediate host") and give Pogly the direct link. No subscription needed. This is the default because Pogly doesn't store the file itself, only the link.
+- **Direct file upload (requires PoglyCDN)** - upload files straight from your computer and Pogly hosts them for you. This needs a paid PoglyCDN subscription (see below).
 
-Uploaded images are saved to your overlay and immediately available to all connected editors. Enable image compression in Settings → General to reduce file size on upload or paste.
+Either way, click the **Images** button in the bottom bar to open the image picker, and once added, an image is saved to your overlay and immediately available to all connected editors.
+
+#### Uploading via an intermediate host (no subscription)
+
+An "intermediate host" is any service that gives you a **direct link** to an image - one that ends in an image extension like `.png`, `.jpg`, `.gif`, or `.webp`. Common options include Imgur, PostImages, or any web host you already use.
+
+1. Upload your image to the host of your choice
+2. Get the **direct image link** - not the link to the page showing the image. On most sites you can right-click the image and choose **Copy image address**; the result should end in `.png`, `.jpg`, etc.
+3. In Pogly, open the **Images** picker and paste the link into the image URL field (or just paste it straight onto the canvas with Ctrl+V)
+
+Pogly stores the link and loads the image from that host, so keep the image up on the host - if it's deleted there, it disappears from your overlay too.
+
+> [!TIP]
+>
+> If a link opens a webpage instead of showing just the image, it isn't a direct link. Look for the raw image URL (it ends in an image file extension).
+
+#### Uploading files directly (PoglyCDN)
+
+With a PoglyCDN subscription you can skip the intermediate host entirely and upload files straight to Pogly - drag and drop from your computer, paste from your clipboard, or use the file picker. See **PoglyCDN / File Uploads** below.
+
+Enable image compression in Settings → General to reduce file size on upload or paste.
 
 ### Emotes
 
@@ -52,10 +71,16 @@ When you have many images and widgets, folders help keep things organized. Creat
 
 ### PoglyCDN / File Uploads
 
-Uploading images directly to Pogly is disabled by default. This requires you to upload your image to an intermediate host, copying the direct image link, and pasting that into Pogly. 
+By default, Pogly can't host your files - you add images by URL from an intermediate host (see "Uploading via an intermediate host" above). **PoglyCDN** removes that step by letting Pogly host your files directly.
 
-To enable file uploads directly to Pogly, a PoglyCDN subscription is required. Once enabled, you can upload files directly to Pogly via the bottom bar, or by dragging the image from your computer straight onto the canvas.
+With an active PoglyCDN subscription you can upload files straight to Pogly:
+
+- Use the upload button in the **Images** picker in the bottom bar
+- Drag an image file from your computer straight onto the canvas
+- Paste an image from your clipboard
+
+Pogly then hosts the file, so you don't need to keep it anywhere else.
 
 > [!NOTE]
 >
-> PoglyCDN is an optional feature. It requires a paid subscription.
+> PoglyCDN is an optional feature that requires a paid subscription. Without it, uploading by URL from an intermediate host works fine and is free.

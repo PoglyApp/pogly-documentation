@@ -52,64 +52,55 @@ interface IProps {
   onHeadingClick: (id: string) => void;
 }
 
-export const DocsSidebar = ({
-  activeSection,
-  onSectionChange,
-  headings,
-  activeHeading,
-  onHeadingClick,
-}: IProps) => {
+export const DocsSidebar = ({ activeSection, onSectionChange, headings, activeHeading, onHeadingClick }: IProps) => {
   const scrollToSection = (id: string) => {
     onSectionChange(id);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <nav
-      style={{ width: "220px" }}
-      className="h-full flex flex-col bg-base border-r border-border flex-shrink-0"
-    >
+    <nav style={{ width: "220px" }} className="h-full flex flex-col bg-base border-r border-border flex-shrink-0">
       <div className="flex-1 min-h-0 overflow-y-auto py-3">
-      {NAV_GROUPS.map((group, gi) => (
-        <div key={group.label}>
-          {gi > 0 && <div className="h-px bg-border mx-3 my-2" />}
-          <p className="text-[11px] font-semibold uppercase tracking-widest text-text-muted px-4 py-2">
-            {group.label}
-          </p>
-          {group.items.map((item) => (
-            <div key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left text-sm px-4 py-1.5 transition-colors cursor-pointer ${
-                  activeSection === item.id
-                    ? "text-accent bg-selected-bg font-medium"
-                    : "text-text-muted hover:text-text-secondary hover:bg-surface-hover"
-                }`}
-              >
-                {item.label}
-              </button>
+        {NAV_GROUPS.map((group, gi) => (
+          <div key={group.label}>
+            {gi > 0 && <div className="h-px bg-border mx-3 my-2" />}
+            <p className="text-[11px] font-semibold uppercase tracking-widest text-text-muted px-4 py-2">
+              {group.label}
+            </p>
+            {group.items.map((item) => (
+              <div key={item.id}>
+                <button
+                  onClick={() => scrollToSection(item.id)}
+                  className={`w-full text-left text-sm px-4 py-1.5 transition-colors cursor-pointer ${
+                    activeSection === item.id
+                      ? "text-accent bg-selected-bg font-medium"
+                      : "text-text-muted hover:text-text-secondary hover:bg-surface-hover"
+                  }`}
+                >
+                  {item.label}
+                </button>
 
-              {activeSection === item.id && headings.length > 0 && (
-                <div className="my-0.5 ml-4 border-l border-border">
-                  {headings.map((heading) => (
-                    <button
-                      key={heading.id}
-                      onClick={() => onHeadingClick(heading.id)}
-                      className={`-ml-px w-[calc(100%+1px)] text-left text-xs py-1 pl-4 pr-3 border-l-2 transition-colors cursor-pointer ${
-                        activeHeading === heading.id
-                          ? "border-accent text-accent"
-                          : "border-transparent text-text-muted hover:text-text-secondary hover:bg-surface-hover"
-                      }`}
-                    >
-                      {heading.text}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      ))}
+                {activeSection === item.id && headings.length > 0 && (
+                  <div className="my-0.5 ml-4 border-l border-border">
+                    {headings.map((heading) => (
+                      <button
+                        key={heading.id}
+                        onClick={() => onHeadingClick(heading.id)}
+                        className={`-ml-px w-[calc(100%+1px)] text-left text-xs py-1 pl-4 pr-3 border-l-2 transition-colors cursor-pointer ${
+                          activeHeading === heading.id
+                            ? "border-accent text-accent"
+                            : "border-transparent text-text-muted hover:text-text-secondary hover:bg-surface-hover"
+                        }`}
+                      >
+                        {heading.text}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
 
       <div className="flex-shrink-0 border-t border-border py-2">
