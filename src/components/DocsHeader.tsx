@@ -9,7 +9,8 @@ interface IProps {
 }
 
 export const DocsHeader = ({ theme, onThemeChange, sections, onSearchNavigate }: IProps) => {
-  const logoSrc = LIGHT_BG_THEMES.has(theme) ? "/assets/logo_light.svg" : "/assets/logo.svg";
+  const base = import.meta.env.BASE_URL;
+  const logoSrc = LIGHT_BG_THEMES.has(theme) ? `${base}assets/logo_light.svg` : `${base}assets/logo.svg`;
 
   return (
     <header className="flex items-center justify-between px-6 h-[52px] bg-surface border-b border-border flex-shrink-0 select-none">
