@@ -1,34 +1,32 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Dependencies
+node_modules/
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Build output
+dist/
+dist-ssr/
 
-# testing
-/coverage
-/test-results
-/playwright-report
-/e2e/.auth
+# Vite cache
+.vite/
 
-# production
-/build
-
-# misc
-.DS_Store
+# Local env files
+.env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*.local
 
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-.idea
-.vs
-.env
-
-/.claude
-/scripts/global-tooling/node_modules
-/sidecar/node_modules
