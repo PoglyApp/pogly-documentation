@@ -1,6 +1,6 @@
 ## Layouts
 
-Layouts are like scenes in OBS - each one is an independent canvas with its own set of elements. 
+Layouts are like scenes in OBS - each one is an independent canvas with its own set of elements.
 
 You might have one layout for when you're playing a game, another for a "be right back" screen, and another for chatting with your viewers. You can switch between them instantly.
 
@@ -24,8 +24,8 @@ Clicking a layout in the list swaps the layout in the editor, allowing you to mo
 
 ### Overlay URL Parameter
 
-By default, the Browser Source overlay URL always shows whichever layout is currently marked Active. 
+By default, the Browser Source overlay URL always shows whichever layout is currently marked Active.
 
-If you would like to force a specific Pogly Layout, you can, by adding a `?layout=layoutName` to the end of your overlay URL, replacing `layoutName` with the name of your specific Layout. 
+If you would like to force a specific Pogly Layout, you can, by adding a `&layout=layoutName` to the end of your overlay URL, replacing `layoutName` with the name of your specific Layout.
 
-This is useful if you would like to create multiple Pogly Browser Sources which are locked to specific layouts. The `?layout=` parameter works alongside your overlay's `?module=` code regardless of whether it's an identity-based or name-based URL.
+This is useful if you would like to create multiple Pogly Browser Sources which are locked to specific layouts. The `&layout=` parameter works alongside your overlay's `?module=` code regardless of whether it's an identity-based or name-based URL.
